@@ -1,0 +1,12 @@
+.day-time {
+  text-align: right;
+  padding-right: 40px;
+  color: #681a1e;
+}
+
+.weather-description {
+  display: block;
+}
+.weather-description::first-letter {
+  text-transform: capitalize;
+}

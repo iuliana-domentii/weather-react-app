@@ -1,3 +1,55 @@
+import "./CurrTemp.css";
+import icon01d from "./img/01d.png";
+import icon02d from "./img/02d.png";
+import icon03d from "./img/03d.png";
+import icon04d from "./img/04d.png";
+import icon09d from "./img/09d.png";
+import icon10d from "./img/10d.png";
+import icon11d from "./img/11d.png";
+import icon13d from "./img/13d.png";
+import icon50d from "./img/50d.png";
+import icon01n from "./img/01n.png";
+import icon02n from "./img/02n.png";
+import icon03n from "./img/03n.png";
+import icon04n from "./img/04n.png";
+import icon09n from "./img/09n.png";
+import icon10n from "./img/10n.png";
+import icon11n from "./img/11n.png";
+import icon13n from "./img/13n.png";
+import icon50n from "./img/50n.png";
+
 export default function CurrTemp(props) {
-  return <div className="col-6">{props.temp}°C</div>;
+  const weatherIcons = {
+    "01d": icon01d,
+    "02d": icon02d,
+    "03d": icon03d,
+    "04d": icon04d,
+    "09d": icon09d,
+    "10d": icon10d,
+    "11d": icon11d,
+    "13d": icon13d,
+    "50d": icon50d,
+    "01n": icon01n,
+    "02n": icon02n,
+    "03n": icon03n,
+    "04n": icon04n,
+    "09n": icon09n,
+    "10n": icon10n,
+    "11n": icon11n,
+    "13n": icon13n,
+    "50n": icon50n,
+  };
+
+  return (
+    <div className="col-6">
+      <img
+        src={weatherIcons[props.icon] ? weatherIcons[props.icon] : ""}
+        alt="N/A"
+        width="80"
+        height="80"
+      />
+      <br />
+      <span className="current-temperature">{props.temp}°C</span>
+    </div>
+  );
 }
