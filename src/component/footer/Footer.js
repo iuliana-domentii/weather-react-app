@@ -5,6 +5,7 @@ export default function Footer() {
       <a
         href="https://github.com/iuliana-domentii/weather-react-app"
         target="_blank"
+        rel="noreferrer"
       >
         Open-source code{" "}
       </a>{" "}
