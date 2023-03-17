@@ -7,6 +7,7 @@ import DayTime from "./component/day-time/DayTime";
 import Header from "./component/header/Header";
 import SearchBar from "./component/search-bar/SearchBar";
 import Footer from "./component/footer/Footer";
+import WeatherForecast from "./component/weather-forecast/WeatherForecast";
 
 export default function App() {
   let [city, setCity] = useState("");
@@ -16,6 +17,7 @@ export default function App() {
   let [time, setTime] = useState("");
   let [weatherDescription, setWeatherDescription] = useState("");
   let [icon, setIcon] = useState("");
+  let [coords, setCoords] = useState("");
 
   function setCurrentTime() {
     let now = new Date();
@@ -51,6 +53,7 @@ export default function App() {
       axios.get(apiUrl).then(
         function (response) {
           setCurrentTime();
+          setCoords(response.data.coord);
           setWeatherDescription(response.data.weather[0].description);
           setCity(response.data.name);
           setTemp(Math.round(response.data.main.temp));
@@ -72,6 +75,7 @@ export default function App() {
       axios.get(url).then(
         function (response) {
           setCurrentTime();
+          setCoords(response.data.coord);
           setWeatherDescription(response.data.weather[0].description);
           setCity(response.data.name);
           setTemp(Math.round(response.data.main.temp));
@@ -118,6 +122,7 @@ export default function App() {
           <div className="col-3"></div>
           <div className="col-3"></div>
         </div>
+        <WeatherForecast coords={coords} />
       </div>
       <Footer />
     </div>
