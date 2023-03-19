@@ -10,7 +10,7 @@ import Footer from "./component/footer/Footer";
 import WeatherForecast from "./component/weather-forecast/WeatherForecast";
 
 export default function App() {
-  let [city, setCity] = useState("");
+  let [city, setCity] = useState("Bern");
   let [humidity, setHumidity] = useState("");
   let [temp, setTemp] = useState("");
   let [wind, setWind] = useState("");
@@ -53,13 +53,8 @@ export default function App() {
 
       axios.get(apiUrl).then(
         function (response) {
-          setCurrentTime();
-          setCoords(response.data.coord);
-          setWeatherDescription(response.data.weather[0].description);
           setCity(response.data.name);
-          setTemp(Math.round(response.data.main.temp));
-          setHumidity(response.data.main.humidity);
-          setWind(Math.round(response.data.wind.speed));
+          getWeatherData(response.data.name);
         },
         function (error) {
           console.error(error);
@@ -93,7 +88,7 @@ export default function App() {
   }
 
   useEffect(function () {
-    getWeatherData("Bern");
+    getWeatherData(city);
   }, []);
 
   return (
