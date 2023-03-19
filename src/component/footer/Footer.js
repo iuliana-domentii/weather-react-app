@@ -16,6 +16,7 @@ export default function Footer() {
         target="_blank"
         rel="noreferrer"
       >
+        {" "}
         Iuliana Domentii
       </a>
     </div>
