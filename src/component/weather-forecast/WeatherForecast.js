@@ -1,4 +1,3 @@
-import "./WeatherForecast.css";
 import axios from "axios";
 import { useState } from "react";
 import WeatherForecastDay from "../weather-forecast-day/WeatherForecastDay";
@@ -8,7 +7,7 @@ export default function WeatherForecast(props) {
   let [forecast, setForecast] = useState(null);
 
   function handleForecast(response) {
-    setForecast(response.data.daily);
+    setForecast(response.data.daily.slice(1, 7));
     setLoaded(true);
   }
 
@@ -17,19 +16,21 @@ export default function WeatherForecast(props) {
     return (
       <div className="weatherForecast">
         <div className="row">
-          <div className="col">
-            <WeatherForecastDay data={forecast[0]} />
-          </div>
+          {forecast.map(function (dayData, index) {
+            return <WeatherForecastDay key={index} data={dayData} />;
+          })}
         </div>
       </div>
     );
-  } else {
+  } else if (props.coords) {
     let latitude = props.coords.lat;
     let longitude = props.coords.lon;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
 
     axios.get(apiUrl).then(handleForecast);
 
+    return null;
+  } else {
     return null;
   }
 }

@@ -13,6 +13,7 @@ export default function SearchBar(props) {
     props.searchCallback(city);
     setCity("");
   }
+
   function handleCurrent() {
     props.currentCallback();
     setCity("");
@@ -30,16 +31,16 @@ export default function SearchBar(props) {
         ></input>
       </div>
       <div className="row">
-        <div className="col-6">
+        <div className="col-md-6 col-sm-6 col-12 first-btn">
           <input
-            className="btn btn-success first-btn"
+            className="btn btn-success "
             type="submit"
             value="Search"
           ></input>
         </div>
-        <div className="col-6">
+        <div className="col-md-6 col-sm-6 col-12 second-btn">
           <input
-            className="btn btn-primary second-btn"
+            className="btn btn-primary"
             type="button"
             onClick={handleCurrent}
             value="Current"

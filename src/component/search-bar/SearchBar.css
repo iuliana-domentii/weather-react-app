@@ -12,11 +12,19 @@
   background: #fafafa;
   transition: 150ms ease-in-out;
 }
+
+@media only screen and (min-width: 576px) {
+  .first-btn {
+    text-align: right;
+  }
+  .second-btn {
+    text-align: left;
+  }
+}
+
 .first-btn {
-  text-align: right;
-  margin-left: 70%;
+  margin-bottom: 20px;
 }
 .second-btn {
-  text-align: left;
-  margin-right: 70%;
+  margin-bottom: 20px;
 }

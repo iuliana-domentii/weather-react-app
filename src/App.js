@@ -44,6 +44,7 @@ export default function App() {
   function searchCallback(city) {
     getWeatherData(city);
   }
+
   function currentCallback() {
     navigator.geolocation.getCurrentPosition(function (position) {
       const lat = Math.round(position.coords.latitude * 100) / 100;
@@ -108,20 +109,6 @@ export default function App() {
           searchCallback={searchCallback}
           currentCallback={currentCallback}
         />
-        <div className="row">
-          <div className="col-2"></div>
-          <div className="col-2"></div>
-          <div className="col-2"></div>
-          <div className="col-2"></div>
-          <div className="col-2"></div>
-          <div className="col-2"></div>
-        </div>
-        <div className="row">
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-        </div>
         <WeatherForecast coords={coords} />
       </div>
       <Footer />
