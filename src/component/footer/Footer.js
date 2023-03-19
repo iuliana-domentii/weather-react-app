@@ -10,7 +10,14 @@ export default function Footer() {
       >
         Open-source code{" "}
       </a>{" "}
-      by Iuliana Domentii
+      by
+      <a
+        href="https://cheerful-valkyrie-c0125a.netlify.app/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Iuliana Domentii
+      </a>
     </div>
   );
 }
